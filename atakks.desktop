@@ -3,6 +3,6 @@ Name=atakks
 Comment=atakks
 Exec=/usr/X11R6/bin/atakks
 Icon=
-Terminal=0
+Terminal=false
 Type=Application
 # vi: encoding=utf-8
