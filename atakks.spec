@@ -38,7 +38,7 @@ CFLAGS="%{rpmcflags} -Wall -ansi -DUS -I/usr/X11R6/include"
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT $RPM_BUILD_ROOT%{_applnkdir}/Games 
+install -d $RPM_BUILD_ROOT $RPM_BUILD_ROOT%{_applnkdir}/Games
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}}
 
 install *.bmp $RPM_BUILD_ROOT%{_datadir}/%{name}
