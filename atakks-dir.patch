@@ -1,0 +1,45 @@
+diff -Nur atakks_1.0.orig/main.c atakks_1.0.chng/main.c
+--- atakks_1.0.orig/main.c	Wed Jun 27 22:20:08 2001
++++ atakks_1.0.chng/main.c	Tue Dec 24 12:35:07 2002
+@@ -14,6 +14,15 @@
+ #include<unistd.h>
+ #include<stdlib.h>		/* atexit */
+ #include "defs.h"
++
++#ifndef PREFIX
++#define PREFIX "/usr/X11R6/"
++#endif
++
++#ifndef DATADIR
++#define DATADIR PREFIX ## "share/atakks/"
++#endif
++
+ void virus(Uint8 posX, Uint8 posY)
+ {
+     Uint8 minx, miny,n;
+@@ -238,7 +247,7 @@
+ 		 argv[0]);
+ #else
+ 	    printf
+-		("\nSyntax: %s OPTIONS\n\n options:\n-h\t\tPrint help\n-t n1 n2\tSet width=n1 and height=n2\n\-ai\t\tActivate 1 player mode, [i] key during game.\n\n",
++		("\nSyntax: %s OPTIONS\n\n options:\n-h\t\tPrint help\n-t n1 n2\tSet width=n1 and height=n2\n-ai\t\tActivate 1 player mode, [i] key during game.\n\n",
+ 		 argv[0]);
+ 
+ #endif				/*  */
+@@ -246,11 +255,11 @@
+ 	}
+     }
+     atexit(SDL_Quit);
+-    ico = SDL_LoadBMP("icon.bmp");
+-    fond = SDL_LoadBMP("fond.bmp");
+-    jeton = SDL_LoadBMP("jeton.bmp");
+-    bleus = SDL_LoadBMP("bleus.bmp");
+-    rouges = SDL_LoadBMP("rouges.bmp");
++    ico = SDL_LoadBMP(DATADIR "icon.bmp");
++    fond = SDL_LoadBMP(DATADIR "fond.bmp");
++    jeton = SDL_LoadBMP(DATADIR "jeton.bmp");
++    bleus = SDL_LoadBMP(DATADIR "bleus.bmp");
++    rouges = SDL_LoadBMP(DATADIR "rouges.bmp");
+     if (fond == NULL || jeton == NULL || rouges == NULL
+ 	|| bleus == NULL || ico == NULL) {
+ 
