@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://team.gcu-squad.org/~fab/down/%{name}.tgz
+# Source0-md5:	9153c731620bf85bb60d00a1c93b621e
 Source1:	%{name}.desktop
 Patch0:		%{name}-dir.patch
 URL:		http://team.gcu-squad.org/~fab/
