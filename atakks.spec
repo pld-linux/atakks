@@ -14,7 +14,6 @@ BuildRequires:	SDL_image-devel
 Requires:	SDL >= 1.2.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define         _prefix         /usr/X11R6
 
 %description
 Ataxx is some old Chinese reflexion game, like othello, and can be
