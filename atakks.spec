@@ -1,14 +1,15 @@
-Summary:	atakks
+Summary:	atakks game
+Summary(pl):	Gra atakks
 Name:		atakks
 Version:	1.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://team.gcu-squad.org/~fab/down/atakks.tgz
+Source0:	http://team.gcu-squad.org/~fab/down/%{name}.tgz
 Source1:	%{name}.desktop
 Patch0:		%{name}-dir.patch
 URL:		http://team.gcu-squad.org/~fab/
-BuildRequires:	SDL-devel
+BuildRequires:	SDL-devel >= 1.2.4
 BuildRequires:	SDL_image-devel
 Requires:	SDL >= 1.2.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -16,8 +17,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define         _prefix         /usr/X11R6
 
 %description
-Ataxx is some old chinese reflexion game, like othello, and can be
+Ataxx is some old Chinese reflexion game, like othello, and can be
 played by two players.
+
+%description -l pl
+Ataxx to stara chiñska gra umys³owa, jak otello, w któr± mo¿e graæ
+dwóch graczy.
 
 %prep
 %setup -q -n %{name}_%{version}
@@ -26,9 +31,9 @@ played by two players.
 %build
 rm -f atakks
 
-LDFLAGS="-lSDL -lpthread -s -L/usr/X11R6/lib"
-CFLAGS="-Wall -ansi -DUS"
-gcc $LDFLAGS $CFLAGS -o %{name} *.c -I%{_includedir}
+LDFLAGS="%{rpmldflags} -lSDL -lpthread -L/usr/X11R6/lib"
+CFLAGS="%{rpmcflags} -Wall -ansi -DUS -I/usr/X11R6/include"
+%{__cc} $LDFLAGS $CFLAGS -o %{name} *.c
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -47,7 +52,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README
-%dir %{_datadir}/%{name}
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}/*.bmp
+%{_datadir}/%{name}
 %{_applnkdir}/Games/*
