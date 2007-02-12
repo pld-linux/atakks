@@ -1,5 +1,5 @@
 Summary:	atakks game
-Summary(pl):	Gra atakks
+Summary(pl.UTF-8):   Gra atakks
 Name:		atakks
 Version:	1.0
 Release:	1
@@ -19,9 +19,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Ataxx is some old Chinese reflexion game, like othello, and can be
 played by two players.
 
-%description -l pl
-Ataxx to stara chiñska gra umys³owa, jak otello, w któr± mo¿e graæ
-dwóch graczy.
+%description -l pl.UTF-8
+Ataxx to stara chiÅ„ska gra umysÅ‚owa, jak otello, w ktÃ³rÄ… moÅ¼e graÄ‡
+dwÃ³ch graczy.
 
 %prep
 %setup -q -n %{name}_%{version}
