@@ -1,5 +1,5 @@
 Summary:	atakks game
-Summary(pl.UTF-8):   Gra atakks
+Summary(pl.UTF-8):	Gra atakks
 Name:		atakks
 Version:	1.0
 Release:	1
